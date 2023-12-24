@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header>
+        <h2>MY WEATHER</h2>
+        <div><input id="inp-city" type="text" placeholder="Odessa"></div>
+    </header>
+    <div class="hedaer-block">
+        <div id="button1">Today</div>
+        <div id="button2">5-day forecast</div>
+    </div>
+    <div class="main-block">
+        <!-- 1 -->
+        <div class="first-weather-block">
+            <div class="wether-block">
+                <div>CURRENT WEATHER</div>
+                <div id="today-date"></div>
+            </div>
+            <div class="wether-inform">
+                <div>
+                    <img id="img" width="120" height="120" />
+                    <div id="description-1"></div>
+                </div>
+                <div>
+                    <div id="temperature"></div>
+                    <div id="main-feels_like"></div>
+                </div>
+                <div>
+                    <div id="sunrise"></div>
+                    <div id="sunset" style="padding: 3px;"></div>
+                    <div id="duration" style="padding: 3px;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 2 -->
+        <div class="second-weather-block">
+            <div class="hourly-block">HOURLY</div>
+
+            <table class="time-table">
+                <thead>
+                    <tr>
+                        <th style="color: #5e5e5e; font-weight: bold;">TODAY</th>
+                        <td id="grid_item_2"></td>
+                        <td id="grid_item_3"></td>
+                        <td id="grid_item_4"></td>
+                        <td id="grid_item_5"></td>
+                        <td id="grid_item_6"></td>
+                        <td id="grid_item_7"></td>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Forecast</td>
+                        <td id="grid_item_9"><img width="120" height="120"/></td>
+                        <td id="grid_item_10"><img width="120" height="120"/></td>
+                        <td id="grid_item_11"><img width="120" height="120"/></td>
+                        <td id="grid_item_12"><img width="120" height="120"/></td>
+                        <td id="grid_item_13"><img width="120" height="120"/></td>
+                        <td id="grid_item_14"><img width="120" height="120"/></td>
+                    </tr>
+                    <tr>
+                       
+                        <td id="grid_item_15"></td>
+                        <td id="grid_item_16"></td>
+                        <td id="grid_item_17"></td>
+                        <td id="grid_item_18"></td>
+                        <td id="grid_item_19"></td>
+                        <td id="grid_item_20"></td>
+                        <td id="grid_item_21"></td>
+                    </tr>
+                    <tr>
+                        <td id="grid_item_22"></td>
+                        <td id="grid_item_23"></td>
+                        <td id="grid_item_24"></td>
+                        <td id="grid_item_25"></td>
+                        <td id="grid_item_26"></td>
+                        <td id="grid_item_27"></td>
+                        <td id="grid_item_28"></td>
+                    </tr>
+                    <tr>
+                        <td id="grid_item_29"></td>
+                        <td id="grid_item_30"></td>
+                        <td id="grid_item_31"></td>
+                        <td id="grid_item_32"></td>
+                        <td id="grid_item_33"></td>
+                        <td id="grid_item_34"></td>
+                        <td id="grid_item_35"></td>
+                    </tr>
+                    <tr>
+                        <td id="grid_item_36"></td>
+                        <td id="grid_item_37"></td>
+                        <td id="grid_item_38"></td>
+                        <td id="grid_item_39"></td>
+                        <td id="grid_item_40"></td>
+                        <td id="grid_item_41"></td>
+                        <td id="grid_item_42"></td>
+                    </tr>
+                    <!-- Add more rows if needed for additional weather details -->
+                </tbody>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
