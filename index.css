@@ -53,6 +53,12 @@ header {
     background-color: #f6f6f6;
 }
 
+.thutry-weather-block{
+    margin-top: 2%;
+    padding: 2%;
+    background-color: #f6f6f6;
+}
+
 .hourly-block,
 .wether-block {
     display: flex;
@@ -90,5 +96,16 @@ header {
     border-bottom: 1px solid #ddd; 
     padding: 8px;
     text-align: center;
+}
+
+.thutry-second-block,
+.thutry-first-block{
+    display: flex; 
+    background-color: #d2d1d1; 
+}
+
+#name-city{
+    color: #2f9d96;
+    font-weight: bold;
 }
 

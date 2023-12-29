@@ -8,12 +8,14 @@ document.addEventListener("DOMContentLoaded", function () {
     var formattedDate = day + '.' + month + '.' + year;
     dateDiv.textContent = formattedDate;
 
-});
+    
 
-window.addEventListener('DOMContentLoaded', (event) => {
+});
+document.addEventListener("DOMContentLoaded", function () {
     const apiKey = 'd77e8a80bfcc7551c3135a39d716ce92';
     let city = 'Odessa';
 
+    const IdSityName = document.getElementById('name-city');
     const inpCity = document.getElementById('inp-city');
     const decript = document.getElementById('description-1');
     const temper = document.getElementById('temperature');
@@ -32,6 +34,31 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
+    function getCity() {
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                const geoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+                fetch(geoUrl)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        city = data.name;
+                        inpCity.value = city;
+                        FuncWeather(city);
+                        fetchWeather2(city);
+                    })
+                    .catch((error) => {
+                        console.error('Ошибка при получении данных о местоположении:', error);
+                    });
+            });
+        } else {
+            alert("Geolocation не поддерживается вашим браузером.");
+        }
+    }
+
     function FuncWeather(cityName) {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
 
@@ -46,10 +73,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
             sunrise.innerHTML = `Pressure: ${data.main.pressure} hPA`;
             sunset.innerHTML = `Humidity: ${data.main.humidity}%`;
             duration.innerHTML = `Wind gust: ${data.wind.gust} meter/sec`;
+            IdSityName.innerHTML = `${city}`;
 
             iconw.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
 
-            weatherElement3.innerHTML = `${mainfeels_like}`;
+         
+            //weatherElement3.innerHTML = `${mainfeels_like}`;
         }).catch((error) => {
             console.error('Произошла ошибка:', error);
         });
@@ -82,8 +111,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 console.error('Произошла ошибка:', error);
             });
     }
-    fetchWeather2(city);    
-    FuncWeather(city);
 
-
+    getCity(); 
+    //fetchWeather2(city);  
 });

@@ -11,7 +11,10 @@
 <body>
     <header>
         <h2>MY WEATHER</h2>
-        <div><input id="inp-city" type="text" placeholder="Odessa"></div>
+        <div id="name-city"></div>
+        <div style="display: flex;">
+            <input id="inp-city" type="text">
+        </div>
     </header>
     <div class="hedaer-block">
         <div id="button1">Today</div>
@@ -55,20 +58,20 @@
                         <td id="grid_item_6"></td>
                         <td id="grid_item_7"></td>
                     </tr>
-                    
+
                 </thead>
                 <tbody>
                     <tr>
                         <td>Forecast</td>
-                        <td id="grid_item_9"><img width="120" height="120"/></td>
-                        <td id="grid_item_10"><img width="120" height="120"/></td>
-                        <td id="grid_item_11"><img width="120" height="120"/></td>
-                        <td id="grid_item_12"><img width="120" height="120"/></td>
-                        <td id="grid_item_13"><img width="120" height="120"/></td>
-                        <td id="grid_item_14"><img width="120" height="120"/></td>
+                        <td id="grid_item_9"><img width="120" height="120" /></td>
+                        <td id="grid_item_10"><img width="120" height="120" /></td>
+                        <td id="grid_item_11"><img width="120" height="120" /></td>
+                        <td id="grid_item_12"><img width="120" height="120" /></td>
+                        <td id="grid_item_13"><img width="120" height="120" /></td>
+                        <td id="grid_item_14"><img width="120" height="120" /></td>
                     </tr>
                     <tr>
-                       
+
                         <td id="grid_item_15"></td>
                         <td id="grid_item_16"></td>
                         <td id="grid_item_17"></td>
@@ -104,8 +107,27 @@
                         <td id="grid_item_41"></td>
                         <td id="grid_item_42"></td>
                     </tr>
-                    <!-- Add more rows if needed for additional weather details -->
+
                 </tbody>
+            </table>
+        </div>
+        <div>
+            <!-- 1 -->
+            <div class="thutry-weather-block">
+                <div class="wether-block">
+                    <div>REARBY PLACES</div>
+                </div>
+                <div class="thutry-first-block">
+                    <div>1</div>
+                    <div>2</div>
+                </div>
+                <div class="thutry-second-block">
+                    <div>3</div>
+                    <div>4</div>
+                </div>
+
+            </div>
+        </div>
     </div>
 
     <script src="index.js"></script>
