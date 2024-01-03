@@ -101,11 +101,42 @@ header {
 .thutry-second-block,
 .thutry-first-block{
     display: flex; 
-    background-color: #d2d1d1; 
+    justify-content: space-between; 
+    /* background-color: #d2d1d1;  */
+}
+
+.thutry-second-block{
+    margin-top: 1%;
 }
 
 #name-city{
     color: #2f9d96;
     font-weight: bold;
+}
+
+#nearby-third-name,
+#nearby-fourth-name,
+#nearby-second-name,
+#nearby-first-name{
+    font-weight: bold;
+}
+
+#nearby-fourth-block,
+#nearby-third-block,
+#nearby-second-block,
+#nearby-first-block {
+    width: 50%;  
+    margin-right: 1%;
+    display: flex;  
+    justify-content: space-between; 
+    align-items: center;
+    background-color: #ededed;  
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+#button2:hover,
+#button1:hover{
+    color: rgb(252, 191, 9);
 }
 

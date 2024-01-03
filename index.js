@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var formattedDate = day + '.' + month + '.' + year;
     dateDiv.textContent = formattedDate;
 
-    
+
 
 });
 document.addEventListener("DOMContentLoaded", function () {
@@ -25,6 +25,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const sunset = document.getElementById('sunset');
     const duration = document.getElementById('duration');
     const hourlyWeatherElem = document.getElementById('hourly-weather');
+    const nearbyNameSity = document.getElementById('nearby-first-name');
+    const nearbyTempOne = document.getElementById('nearby-first-temperature');
+    const nearbyNameSity2 = document.getElementById('nearby-second-name');
+    const nearbyTempTwo = document.getElementById('nearby-second-temperature');
+    const nearbyNameSity3 = document.getElementById('nearby-third-name');
+    const nearbyTempThird = document.getElementById('nearby-third-temperature');
+    const nearbyNameSity4 = document.getElementById('nearby-fourth-name');
+    const nearbyTempFourth = document.getElementById('nearby-fourth-temperature');
+
 
     inpCity.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
@@ -49,6 +58,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         inpCity.value = city;
                         FuncWeather(city);
                         fetchWeather2(city);
+                        CitiesNearby('Измаил');
+                        CitiesNearby2('Киев');
+                        CitiesNearby3('Херсон');
+                        CitiesNearby4('Львов');
                     })
                     .catch((error) => {
                         console.error('Ошибка при получении данных о местоположении:', error);
@@ -77,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             iconw.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
 
-         
+
             //weatherElement3.innerHTML = `${mainfeels_like}`;
         }).catch((error) => {
             console.error('Произошла ошибка:', error);
@@ -112,6 +125,107 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
-    getCity(); 
-    //fetchWeather2(city);  
+    function CitiesNearby(cityName) {
+        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
+
+        fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                nearbyNameSity.innerHTML = `${cityName}`;
+                const nearbyFirstPhoto = document.getElementById('nearby-first-photo');
+                const nearbyFirstBlock = document.getElementById('nearby-first-block');
+                const iconCode = data.list[0].weather[0].icon;
+                const iconUrl = `https://openweathermap.org/img/w/${iconCode}.png`;
+
+                nearbyFirstPhoto.src = iconUrl;
+
+                const temperature2 = data.list[0].main.temp;
+                nearbyTempOne.innerHTML = `${temperature2}°C`;
+
+
+
+            })
+            .catch((error) => {
+                console.error('Произошла ошибка:', error);
+            });
+    }
+    function CitiesNearby2(cityName) {
+        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
+
+        fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                nearbyNameSity2.innerHTML = `${cityName}`;
+                const nearbySecondtPhoto = document.getElementById('nearby-second-photo');
+                const nearbySecondBlock = document.getElementById('nearby-second-block');
+                const iconCode = data.list[0].weather[0].icon;
+                const iconUrl = `https://openweathermap.org/img/w/${iconCode}.png`;
+
+                nearbySecondtPhoto.src = iconUrl;
+
+                const temperature3 = data.list[0].main.temp;
+                nearbyTempTwo.innerHTML = `${temperature3}°C`;
+
+
+
+            })
+            .catch((error) => {
+                console.error('Произошла ошибка:', error);
+            });
+    }
+    function CitiesNearby3(cityName) {
+        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
+
+        fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                nearbyNameSity3.innerHTML = `${cityName}`;
+                const nearbyThirdtPhoto = document.getElementById('nearby-third-photo');
+                const nearbyThirdBlock = document.getElementById('nearby-third-block');
+                const iconCode = data.list[0].weather[0].icon;
+                const iconUrl = `https://openweathermap.org/img/w/${iconCode}.png`;
+
+                nearbyThirdtPhoto.src = iconUrl;
+
+                const temperature4 = data.list[0].main.temp;
+                nearbyTempThird.innerHTML = `${temperature4}°C`;
+
+
+
+            })
+            .catch((error) => {
+                console.error('Произошла ошибка:', error);
+            });
+    }
+
+    function CitiesNearby4(cityName) {
+        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
+
+        fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                nearbyNameSity4.innerHTML = `${cityName}`;
+                const nearbyFourthPhoto = document.getElementById('nearby-fourth-photo');
+                const nearbyFourthlock = document.getElementById('nearby-fourth-block');
+                const iconCode = data.list[0].weather[0].icon;
+                const iconUrl = `https://openweathermap.org/img/w/${iconCode}.png`;
+
+                nearbyFourthPhoto.src = iconUrl;
+
+                const temperature5 = data.list[0].main.temp;
+                nearbyTempFourth.innerHTML = `${temperature5}°C`;
+
+
+
+            })
+            .catch((error) => {
+                console.error('Произошла ошибка:', error);
+            });
+    }
+
+    getCity();
+    //fetchWeather2(city); 
+    $("#button2").click(function () { $(".main-block").fadeOut(1000) });
+    
+
 });
