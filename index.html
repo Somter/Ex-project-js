@@ -22,141 +22,261 @@
         <div id="button1">Today</div>
         <div id="button2">5-day forecast</div>
     </div>
-    <div class="main-block">
-        <!-- 1 -->
-        <div class="first-weather-block">
-            <div class="wether-block">
-                <div>CURRENT WEATHER</div>
-                <div id="today-date"></div>
-            </div>
-            <div class="wether-inform">
-                <div>
-                    <img id="img" width="120" height="120" />
-                    <div id="description-1"></div>
-                </div>
-                <div>
-                    <div id="temperature"></div>
-                    <div id="main-feels_like"></div>
-                </div>
-                <div>
-                    <div id="sunrise"></div>
-                    <div id="sunset" style="padding: 3px;"></div>
-                    <div id="duration" style="padding: 3px;"></div>
-                </div>
-            </div>
-        </div>
-        <!-- 2 -->
-        <div class="second-weather-block">
-            <div class="hourly-block">HOURLY</div>
-
-            <table class="time-table">
-                <thead>
-                    <tr>
-                        <th style="color: #5e5e5e; font-weight: bold;">TODAY</th>
-                        <td id="grid_item_2"></td>
-                        <td id="grid_item_3"></td>
-                        <td id="grid_item_4"></td>
-                        <td id="grid_item_5"></td>
-                        <td id="grid_item_6"></td>
-                        <td id="grid_item_7"></td>
-                    </tr>
-
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Forecast</td>
-                        <td id="grid_item_9"><img width="120" height="120" /></td>
-                        <td id="grid_item_10"><img width="120" height="120" /></td>
-                        <td id="grid_item_11"><img width="120" height="120" /></td>
-                        <td id="grid_item_12"><img width="120" height="120" /></td>
-                        <td id="grid_item_13"><img width="120" height="120" /></td>
-                        <td id="grid_item_14"><img width="120" height="120" /></td>
-                    </tr>
-                    <tr>
-
-                        <td id="grid_item_15"></td>
-                        <td id="grid_item_16"></td>
-                        <td id="grid_item_17"></td>
-                        <td id="grid_item_18"></td>
-                        <td id="grid_item_19"></td>
-                        <td id="grid_item_20"></td>
-                        <td id="grid_item_21"></td>
-                    </tr>
-                    <tr>
-                        <td id="grid_item_22"></td>
-                        <td id="grid_item_23"></td>
-                        <td id="grid_item_24"></td>
-                        <td id="grid_item_25"></td>
-                        <td id="grid_item_26"></td>
-                        <td id="grid_item_27"></td>
-                        <td id="grid_item_28"></td>
-                    </tr>
-                    <tr>
-                        <td id="grid_item_29"></td>
-                        <td id="grid_item_30"></td>
-                        <td id="grid_item_31"></td>
-                        <td id="grid_item_32"></td>
-                        <td id="grid_item_33"></td>
-                        <td id="grid_item_34"></td>
-                        <td id="grid_item_35"></td>
-                    </tr>
-                    <tr>
-                        <td id="grid_item_36"></td>
-                        <td id="grid_item_37"></td>
-                        <td id="grid_item_38"></td>
-                        <td id="grid_item_39"></td>
-                        <td id="grid_item_40"></td>
-                        <td id="grid_item_41"></td>
-                        <td id="grid_item_42"></td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </div>
+    <div class="error-mesage">
+        <img src="404-page-not-found.256x124.png" width="456" height="254">
         <div>
-            <!-- 1 -->
-            <div class="thutry-weather-block">
-                <div class="wether-block">
-                    <div>REARBY PLACES</div>
-                </div>
-                <div class="thutry-first-block">
-                    <div id="nearby-first-block">
-                        <div id="nearby-first-name"></div>
-                        <div style="display: flex; align-items: center; ">
-                            <div style="margin-right: 20px;"><img id="nearby-first-photo" width="50" height="50" /></div>
-                            <div id="nearby-first-temperature"></div>
-                        </div>
-                    </div>
-                    <div id="nearby-second-block">
-                        <div id="nearby-second-name"></div>
-                        <div style="display: flex; align-items: center; ">
-                            <div style="margin-right: 20px;"><img id="nearby-second-photo" width="50" height="50" /></div>
-                            <div id="nearby-second-temperature"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="thutry-second-block">
-                    <div id="nearby-third-block">
-                        <div id="nearby-third-name"></div>
-                        <div style="display: flex; align-items: center; ">
-                            <div style="margin-right: 20px;"><img id="nearby-third-photo" width="50" height="50" /></div>
-                            <div id="nearby-third-temperature"></div>
-                        </div>
-                    </div>
-                    <div id="nearby-fourth-block">
-                        <div id="nearby-fourth-name"></div>
-                        <div style="display: flex; align-items: center; ">
-                            <div style="margin-right: 20px;"><img id="nearby-fourth-photo" width="50" height="50" /></div>
-                            <div id="nearby-fourth-temperature"></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <span id="not-be-found"></span> could not be found. <br>
+            Please enter a different location.
         </div>
     </div>
+    <div class="main-block">
+        <!-- 1 -->
+        <div id="first-button-block">
+            <div class="first-weather-block">
+                <div class="wether-block">
+                    <div>CURRENT WEATHER</div>
+                    <div id="today-date"></div>
+                </div>
+                <div class="wether-inform">
+                    <div>
+                        <img id="img" width="120" height="120" />
+                        <div id="description-1"></div>
+                    </div>
+                    <div>
+                        <div id="temperature"></div>
+                        <div id="main-feels_like"></div>
+                    </div>
+                    <div>
+                        <div id="sunrise"></div>
+                        <div id="sunset" style="padding: 3px;"></div>
+                        <div id="duration" style="padding: 3px;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 2 -->
+            <div class="second-weather-block">
+                <div class="hourly-block">HOURLY</div>
 
-    <script src="index.js"></script>
+                <table class="time-table">
+                    <thead>
+                        <tr>
+                            <th style="color: #5e5e5e; font-weight: bold;">TODAY</th>
+                            <td id="grid_item_2"></td>
+                            <td id="grid_item_3"></td>
+                            <td id="grid_item_4"></td>
+                            <td id="grid_item_5"></td>
+                            <td id="grid_item_6"></td>
+                            <td id="grid_item_7"></td>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Forecast</td>
+                            <td id="grid_item_9"><img width="120" height="120" /></td>
+                            <td id="grid_item_10"><img width="120" height="120" /></td>
+                            <td id="grid_item_11"><img width="120" height="120" /></td>
+                            <td id="grid_item_12"><img width="120" height="120" /></td>
+                            <td id="grid_item_13"><img width="120" height="120" /></td>
+                            <td id="grid_item_14"><img width="120" height="120" /></td>
+                        </tr>
+                        <tr>
+
+                            <td id="grid_item_15"></td>
+                            <td id="grid_item_16"></td>
+                            <td id="grid_item_17"></td>
+                            <td id="grid_item_18"></td>
+                            <td id="grid_item_19"></td>
+                            <td id="grid_item_20"></td>
+                            <td id="grid_item_21"></td>
+                        </tr>
+                        <tr>
+                            <td id="grid_item_22"></td>
+                            <td id="grid_item_23"></td>
+                            <td id="grid_item_24"></td>
+                            <td id="grid_item_25"></td>
+                            <td id="grid_item_26"></td>
+                            <td id="grid_item_27"></td>
+                            <td id="grid_item_28"></td>
+                        </tr>
+                        <tr>
+                            <td id="grid_item_29"></td>
+                            <td id="grid_item_30"></td>
+                            <td id="grid_item_31"></td>
+                            <td id="grid_item_32"></td>
+                            <td id="grid_item_33"></td>
+                            <td id="grid_item_34"></td>
+                            <td id="grid_item_35"></td>
+                        </tr>
+                        <tr>
+                            <td id="grid_item_36"></td>
+                            <td id="grid_item_37"></td>
+                            <td id="grid_item_38"></td>
+                            <td id="grid_item_39"></td>
+                            <td id="grid_item_40"></td>
+                            <td id="grid_item_41"></td>
+                            <td id="grid_item_42"></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <div class="thutry-weather-block">
+                    <div class="wether-block">
+                        <div>REARBY PLACES</div>
+                    </div>
+                    <div class="thutry-first-block">
+                        <div id="nearby-first-block">
+                            <div id="nearby-first-name"></div>
+                            <div style="display: flex; align-items: center; ">
+                                <div style="margin-right: 20px;"><img id="nearby-first-photo" width="50" height="50" />
+                                </div>
+                                <div id="nearby-first-temperature"></div>
+                            </div>
+                        </div>
+                        <div id="nearby-second-block">
+                            <div id="nearby-second-name"></div>
+                            <div style="display: flex; align-items: center; ">
+                                <div style="margin-right: 20px;"><img id="nearby-second-photo" width="50" height="50" />
+                                </div>
+                                <div id="nearby-second-temperature"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thutry-second-block">
+                        <div id="nearby-third-block">
+                            <div id="nearby-third-name"></div>
+                            <div style="display: flex; align-items: center; ">
+                                <div style="margin-right: 20px;"><img id="nearby-third-photo" width="50" height="50" />
+                                </div>
+                                <div id="nearby-third-temperature"></div>
+                            </div>
+                        </div>
+                        <div id="nearby-fourth-block">
+                            <div id="nearby-fourth-name"></div>
+                            <div style="display: flex; align-items: center; ">
+                                <div style="margin-right: 20px;"><img id="nearby-fourth-photo" width="50" height="50" />
+                                </div>
+                                <div id="nearby-fourth-temperature"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+        </div>
+        <div id="main-second-block">
+            <div id="main-second-block-one">
+                <div class="one-block">
+                    <div id="weather-description"></div>
+                    <div id="day"></div>
+                    <div id="icon-weather-description" width="120" height="120"></div>
+                    <div id="weather-temperature"></div>
+                    <div id="weather-feeling"></div>
+                </div>
+                <div class="two-block">
+                    <div id="weather-description"></div>
+                    <div id="day"></div>
+                    <div id="icon-weather-description"></div>
+                    <div id="weather-temperature"></div>
+                    <div id="weather-feeling"></div>
+                </div>
+                <div class="three-block">
+                    <div id="weather-description"></div>
+                    <div id="day"></div>
+                    <div id="icon-weather-description"></div>
+                    <div id="weather-temperature"></div>
+                    <div id="weather-feeling"></div>
+                </div>
+                <div class="four-block">
+                    <div id="weather-description"></div>
+                    <div id="day"></div>
+                    <div id="icon-weather-description"></div>
+                    <div id="weather-temperature"></div>
+                    <div id="weather-feeling"></div>
+                </div>
+                <div class="five-block">
+                    <div id="weather-description"></div>
+                    <div id="day"></div>
+                    <div id="icon-weather-description"></div>
+                    <div id="weather-temperature"></div>
+                    <div id="weather-feeling"></div>
+                </div>
+            </div>
+
+            <div class="second-second-weather-block">
+                <div class="second-hourly-block">HOURLY</div>
+
+                <table class="second-time-table">
+                    <thead>
+                        <tr>
+                            <th style="color: #5e5e5e; font-weight: bold;" id="name-day"></th>
+                            <td id="second-grid_item_2"></td>
+                            <td id="second-grid_item_3"></td>
+                            <td id="second-grid_item_4"></td>
+                            <td id="second-grid_item_5"></td>
+                            <td id="second-grid_item_6"></td>
+                            <td id="second-grid_item_7"></td>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Forecast</td>
+                            <td id="second-grid_item_9"><img width="120" height="120" /></td>
+                            <td id="second-grid_item_10"><img width="120" height="120" /></td>
+                            <td id="second-grid_item_11"><img width="120" height="120" /></td>
+                            <td id="second-grid_item_12"><img width="120" height="120" /></td>
+                            <td id="second-grid_item_13"><img width="120" height="120" /></td>
+                            <td id="second-grid_item_14"><img width="120" height="120" /></td>
+                        </tr>
+                        <tr>
+                            <td id="second-grid_item_15"></td>
+                            <td id="second-grid_item_16"></td>
+                            <td id="second-grid_item_17"></td>
+                            <td id="second-grid_item_18"></td>
+                            <td id="second-grid_item_19"></td>
+                            <td id="second-grid_item_20"></td>
+                            <td id="second-grid_item_21"></td>
+                        </tr>
+                        <tr>
+                            <td id="second-grid_item_22"></td>
+                            <td id="second-grid_item_23"></td>
+                            <td id="second-grid_item_24"></td>
+                            <td id="second-grid_item_25"></td>
+                            <td id="second-grid_item_26"></td>
+                            <td id="second-grid_item_27"></td>
+                            <td id="second-grid_item_28"></td>
+                        </tr>
+                        <tr>
+                            <td id="second-grid_item_29"></td>
+                            <td id="second-grid_item_30"></td>
+                            <td id="second-grid_item_31"></td>
+                            <td id="second-grid_item_32"></td>
+                            <td id="second-grid_item_33"></td>
+                            <td id="second-grid_item_34"></td>
+                            <td id="second-grid_item_35"></td>
+                        </tr>
+                        <tr>
+                            <td id="second-grid_item_36"></td>
+                            <td id="second-grid_item_37"></td>
+                            <td id="second-grid_item_38"></td>
+                            <td id="second-grid_item_39"></td>
+                            <td id="second-grid_item_40"></td>
+                            <td id="second-grid_item_41"></td>
+                            <td id="second-grid_item_42"></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <br>
+
+        </div>
+
+        <script src="index.js"></script>
 </body>
 
 </html>

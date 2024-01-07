@@ -47,18 +47,20 @@ header {
 }
 
 
+.second-second-weather-block,
 .second-weather-block {
     margin-top: 2%;
     padding: 2%;
     background-color: #f6f6f6;
 }
 
-.thutry-weather-block{
+.thutry-weather-block {
     margin-top: 2%;
     padding: 2%;
     background-color: #f6f6f6;
 }
 
+.second-hourly-block,
 .hourly-block,
 .wether-block {
     display: flex;
@@ -85,31 +87,34 @@ header {
     font-weight: 400;
 }
 
+.second-time-table,
 .time-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
 }
 
+.second-time-table th,
+.second-time-table td,
 .time-table th,
 .time-table td {
-    border-bottom: 1px solid #ddd; 
+    border-bottom: 1px solid #ddd;
     padding: 8px;
     text-align: center;
 }
 
 .thutry-second-block,
-.thutry-first-block{
-    display: flex; 
-    justify-content: space-between; 
+.thutry-first-block {
+    display: flex;
+    justify-content: space-between;
     /* background-color: #d2d1d1;  */
 }
 
-.thutry-second-block{
+.thutry-second-block {
     margin-top: 1%;
 }
 
-#name-city{
+#name-city {
     color: #2f9d96;
     font-weight: bold;
 }
@@ -117,7 +122,7 @@ header {
 #nearby-third-name,
 #nearby-fourth-name,
 #nearby-second-name,
-#nearby-first-name{
+#nearby-first-name {
     font-weight: bold;
 }
 
@@ -125,18 +130,65 @@ header {
 #nearby-third-block,
 #nearby-second-block,
 #nearby-first-block {
-    width: 50%;  
+    width: 50%;
     margin-right: 1%;
-    display: flex;  
-    justify-content: space-between; 
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    background-color: #ededed;  
+    background-color: #ededed;
     padding-left: 2%;
     padding-right: 2%;
 }
 
 #button2:hover,
-#button1:hover{
+#button1:hover {
     color: rgb(252, 191, 9);
 }
 
+#main-second-block {
+    margin-top: 1%;
+
+}
+
+.one-block,
+.two-block,
+.three-block,
+.four-block,
+.five-block {
+    background-color: #f6f6f6;
+    padding: 2.8%;
+    width: 150px;
+    height: 200px;
+}
+
+#main-second-block div:hover {
+    background-color: #ededed;
+
+}
+
+#main-second-block div div {
+    text-align: center;
+}
+
+#day {
+    color: #2f9d96;
+    font-weight: bold;
+}
+
+#weather-temperature {
+    font-size: 30px;
+}
+
+#main-second-block-one {
+    display: flex;
+    justify-content: space-between;
+}
+
+.error-mesage {
+    margin-left: 17%;
+    margin-right: 17%;
+    padding: 3%;
+    margin-top: 2%;
+    text-align: center;
+    display: none;
+}

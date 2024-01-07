@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const nearbyTempThird = document.getElementById('nearby-third-temperature');
     const nearbyNameSity4 = document.getElementById('nearby-fourth-name');
     const nearbyTempFourth = document.getElementById('nearby-fourth-temperature');
+    $("#main-second-block").hide();
 
 
     inpCity.addEventListener('keydown', (event) => {
@@ -40,7 +41,30 @@ document.addEventListener("DOMContentLoaded", function () {
             city = inpCity.value;
             FuncWeather(city);
             fetchWeather2(city);
+            fetchWeather3(city);
+            fetchTable1(city, 0);
+           
         }
+    });
+
+    $('.one-block').click(function () {
+        fetchTable1(city, 0);
+    });
+
+    $('.two-block').click(function () {
+        fetchTable1(city, 1);
+    });
+
+    $('.three-block').click(function () {
+        fetchTable1(city, 2);
+    });
+
+    $('.four-block').click(function () {
+        fetchTable1(city, 3);
+    });
+
+    $('.five-block').click(function () {
+        fetchTable1(city, 4);
     });
 
     function getCity() {
@@ -62,6 +86,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         CitiesNearby2('Киев');
                         CitiesNearby3('Херсон');
                         CitiesNearby4('Львов');
+                        fetchWeather3(city);
+                        fetchTable1(city, 0);
                     })
                     .catch((error) => {
                         console.error('Ошибка при получении данных о местоположении:', error);
@@ -90,10 +116,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             iconw.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
 
-
-            //weatherElement3.innerHTML = `${mainfeels_like}`;
+           
         }).catch((error) => {
             console.error('Произошла ошибка:', error);
+            showErrorMessage();
         });
     }
 
@@ -122,6 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch((error) => {
                 console.error('Произошла ошибка:', error);
+                showErrorMessage();
             });
     }
 
@@ -147,6 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch((error) => {
                 console.error('Произошла ошибка:', error);
+                
             });
     }
     function CitiesNearby2(cityName) {
@@ -225,7 +253,108 @@ document.addEventListener("DOMContentLoaded", function () {
 
     getCity();
     //fetchWeather2(city); 
-    $("#button2").click(function () { $(".main-block").fadeOut(1000) });
-    
+    $("#button2").click(function () {
+        $("#first-button-block").fadeOut(1000, function () {
+            $("#main-second-block").fadeIn(1000);
+        });
+    });
+
+    $("#button1").click(function () {
+        $("#main-second-block").fadeOut(1000, function () {
+            $("#first-button-block").fadeIn(1000);
+        });
+    });
+
+    const mainBlocks = document.querySelectorAll('#main-second-block-one > div');
+
+    function fetchWeather3(cityName) {
+        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
+
+        fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                let dayIndex = 0;
+
+                for (let i = 0; i < data.list.length; i += 8) {
+                    const dayBlock = mainBlocks[dayIndex];
+                    const weather = data.list[i];
+
+                    const weatherDescriptionElem = dayBlock.querySelector('#weather-feeling');
+                    const dayElem = dayBlock.querySelector('#day');
+                    const iconWeatherElem = dayBlock.querySelector('#icon-weather-description');
+                    const weatherTemperatureElem = dayBlock.querySelector('#weather-temperature');
+
+                    weatherDescriptionElem.textContent = weather.weather[0].description;
+                    dayElem.textContent = new Date(weather.dt * 1000).toLocaleDateString('en-US', { weekday: 'long' });
+                    iconWeatherElem.innerHTML = `<img width="120" height="120"src="https://openweathermap.org/img/wn/${weather.weather[0].icon}.png" alt="Weather Icon">`;
+                    weatherTemperatureElem.textContent = `${weather.main.temp}°C`;
+
+                    dayIndex++;
+                }
+            })
+            .catch((error) => {
+                console.error('Произошла ошибка:', error);
+            });
+    }
+
+    const NameDay = document.getElementById('name-day');
+
+    function fetchTable1(cityName, dayIndex) {
+        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
+
+        fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                const currentDate = new Date(data.list[dayIndex * 8].dt * 1000);
+                NameDay.innerHTML = currentDate.toLocaleDateString('en-US', { weekday: 'long' });
+
+                for (let i = 2; i <= 42; i++) {
+                    const gridItem = document.getElementById(`second-grid_item_${i}`);
+                    const dataIndex = (dayIndex * 8) + (i - 2);
+
+                    if (i >= 2 && i <= 7) {
+                        gridItem.textContent = `${data.list[dataIndex].dt_txt.slice(11, 16)} h`;
+                    } else if (i >= 9 && i <= 14) {
+                        gridItem.querySelector('img').src = `https://openweathermap.org/img/wn/${data.list[dataIndex].weather[0].icon}.png`;
+                    } else if (i >= 16 && i <= 21) {
+                        gridItem.textContent = `${data.list[dataIndex].weather[0].main}`;
+                    } else if (i >= 23 && i <= 28) {
+                        gridItem.textContent = `${data.list[dataIndex].main.temp}°`;
+                    } else if (i >= 30 && i <= 35) {
+                        gridItem.textContent = `${data.list[dataIndex].main.feels_like}°`;
+                    } else if (i >= 37 && i <= 42) {
+                        gridItem.textContent = `${data.list[dataIndex].wind.speed} m/s`;
+                    }
+                }
+            })
+            .catch((error) => {
+                console.error('Произошла ошибка:', error);
+            });
+    }
+
+    $(`.one-block${0}`).click(function () {
+        fetchTable1('Одесса', 0);
+    });
+
+    $('.two-block').click(function () {
+        fetchTable1('Одесса', 1);
+    });
+
+    $('.three-block').click(function () {
+        fetchTable1('Одесса', 2);
+    });
+
+    $('.four-block').click(function () {
+        fetchTable1('Одесса', 3);
+    });
+
+    $('.five-block').click(function () {
+        fetchTable1('Одесса', 4);
+    });
 
 });
+
+function showErrorMessage() {
+    const errorMessageBlock = document.querySelector('.error-message');
+    errorMessageBlock.style.display = 'block';
+}
